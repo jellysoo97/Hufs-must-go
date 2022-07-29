@@ -1,29 +1,58 @@
 import React, { useState } from "react"
+import { MdAdd } from "react-icons/md"
+
 import { ReactComponent as Kr } from "../../images/bibimbap.svg"
 import { ReactComponent as Jp } from "../../images/sushi.svg"
 import { ReactComponent as West } from "../../images/burger.svg"
 import { ReactComponent as Cn } from "../../images/dimsum.svg"
 import { ReactComponent as Cafe } from "../../images/cafeteria.svg"
-
-import ResPagination from "./ResPagination"
 import {
   ResItemCate,
   ResItemConDiv,
   ResItemDiv,
   ResItemIcon,
   ResItemName,
+  ResItemAdd,
 } from "./ResSC"
 
+import ResPagination from "./ResPagination"
+import { useResDispatch, useResNextId, useResState } from "./ResProvider"
+
 function ResItem({ data }) {
+  const state = useResState()
+  const names = [].concat(state.map((el) => el.name))
   const [page, setPage] = useState(1)
   const offset = (page - 1) * 6
+
+  const dispatch = useResDispatch()
+  const nextId = useResNextId()
+
+  const handleAdd = (el, e) => {
+    e.preventDefault()
+    if (!names.includes(el.name)) {
+      dispatch({
+        type: "CREATE",
+        res: {
+          id: nextId.current,
+          name: el.name,
+          category: el.category,
+          done: false,
+          review: 0,
+        },
+      })
+      nextId.current += 1
+      alert("마이페이지에 추가되었습니다.")
+    } else {
+      alert("이미 마이페이지에 있는 식당입니다.")
+    }
+  }
 
   return (
     <>
       <ResItemConDiv>
         {data &&
           data.slice(offset, offset + 6).map((el, index) => (
-            <ResItemDiv key={index}>
+            <ResItemDiv key={index} onClick={(e) => handleAdd(el, e)}>
               <ResItemIcon>
                 {el.category === "한식" && (
                   <Kr width="30px" height="30px" fill="#7da848" />
@@ -43,6 +72,9 @@ function ResItem({ data }) {
               </ResItemIcon>
               <ResItemName>{el.name}</ResItemName>
               <ResItemCate>- {el.category}</ResItemCate>
+              <ResItemAdd>
+                <MdAdd />
+              </ResItemAdd>
             </ResItemDiv>
           ))}
       </ResItemConDiv>

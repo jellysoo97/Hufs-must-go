@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <>
+    <ResProvider>
       <GlobalStyle />
       <MainWrap>
         <MainDiv>
@@ -40,7 +40,7 @@ function App() {
           </LandingConDiv>
         </MainDiv>
       </MainWrap>
-    </>
+    </ResProvider>
   )
 }
 

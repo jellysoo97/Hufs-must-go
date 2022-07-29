@@ -67,3 +67,66 @@ export const NavItemDiv = styled.div`
       cursor: pointer;
     `}
 `
+// MyPage
+export const MyPageItemConDiv = styled.div`
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  position: relative;
+`
+export const MyPageItemDiv = styled.div`
+  width: 355px;
+  height: 30px;
+  margin: 0 auto;
+  font-family: "BMHANNAAir", sans-serif;
+  padding: 10px 0 10px 10px;
+  display: flex;
+  align-items: center;
+  position: relative;
+`
+export const MyPageItemRemove = styled.div`
+  display: flex;
+  align-items: center;
+  color: #ff6b6b;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+`
+export const MyPageItemCheck = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 16px;
+  border: 1px solid #ced4da;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  cursor: pointer;
+  ${(props) =>
+    props.done &&
+    css`
+      border: 1px solid #38d9a9;
+      color: #38d9a9;
+    `}
+`
+export const MyPageItemName = styled.div`
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 10px;
+  ${(props) =>
+    props.done &&
+    css`
+      opacity: 0.5;
+    `}
+`
+export const MyPageItemCate = styled.div`
+  color: rgb(21, 47, 84);
+  ${(props) =>
+    props.done &&
+    css`
+      opacity: 0.5;
+    `}
+`

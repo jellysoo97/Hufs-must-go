@@ -16,7 +16,7 @@ function ResPagination({ total, limit, page, setPage }) {
             <ResPagBtn
               key={index + 1}
               onClick={() => setPage(index + 1)}
-              aria-cur={page === index + 1 ? "page" : null}
+              aria-current={page === index + 1 ? "page" : null}
             >
               {index + 1}
             </ResPagBtn>

@@ -19,6 +19,18 @@ export const ResItemConDiv = styled.div`
   padding: 40px;
   position: relative;
 `
+export const ResItemAdd = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff6b6b;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  right: 10px;
+`
 export const ResItemDiv = styled.div`
   width: 355px;
   height: 30px;
@@ -30,7 +42,13 @@ export const ResItemDiv = styled.div`
   :hover {
     border: 2px solid #8c8c8c;
     cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.2s all ease-in;
+    ${ResItemAdd} {
+      display: initial;
+    }
   }
+  position: relative;
 `
 export const ResItemIcon = styled.div`
   width: 30px;
@@ -44,9 +62,6 @@ export const ResItemName = styled.div`
 `
 export const ResItemCate = styled.div`
   color: rgb(21, 47, 84);
-`
-export const ResItemPlus = styled.button`
-  z-index: 5;
 `
 // Pagination
 export const ResPagDiv = styled.div`
@@ -63,6 +78,7 @@ export const ResPagNav = styled.nav`
 export const ResPagBtn = styled.button`
   border: none;
   border-radius: 8px;
+  background: inherit;
   font-size: 1.1rem;
   padding: 10px;
   margin: 0;
@@ -75,7 +91,7 @@ export const ResPagBtn = styled.button`
   &[disabled] {
     cursor: revert;
   }
-  &[aria-cur] {
+  &[aria-current] {
     background: rgb(21, 47, 84);
     color: rgb(197, 172, 109);
     font-weight: bold;

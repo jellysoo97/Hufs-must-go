@@ -7,7 +7,7 @@ function Header() {
   return (
     <HeaderDiv>
       <HeaderTitleDiv>
-        <Link to="/">외대 맛집 리스트</Link>
+        <Link to="/">외대 맛집 도장깨기</Link>
       </HeaderTitleDiv>
     </HeaderDiv>
   )
