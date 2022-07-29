@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "BMHANNAPro";
+  src: url("./BMHANNAPro.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BMHANNAAir";
+  src: url("./BMHANNAAir_ttf.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import { Routes, Route } from "react-router-dom"
+import { createGlobalStyle } from "styled-components"
+import reset from "styled-reset"
+
+import Header from "./components/Header"
+import Navbar from "./components/Navbar"
+import ResList from "./components/Res/ResList"
+import MyPage from "./components/MyPage"
+
+import { MainWrap, MainDiv } from "./components/StyledComponents"
+import { LandingConDiv } from "./components/Res/ResSC"
+import { ResProvider } from "./components/Res/ResProvider"
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+  *{
+    border-sizing: border-box;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <GlobalStyle />
+      <MainWrap>
+        <MainDiv>
+          <Header />
+          <Navbar />
+          <LandingConDiv>
+            <Routes>
+              <Route path="/" element={<ResList all={"all"} />} />
+              <Route path="/:cate" element={<ResList />} />
+              <Route path="/mypage" element={<MyPage />} />
+            </Routes>
+          </LandingConDiv>
+        </MainDiv>
+      </MainWrap>
+    </>
+  )
 }
 
-export default App;
+export default App
